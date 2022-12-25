@@ -8,7 +8,7 @@ import java.util.Map;
 import static io.restassured.RestAssured.given;
 
 public class RestUtils {
-    public Response get(String url) {
+    public static Response get(String url) {
         return given()
                 .expect()
                 .defaultParser(Parser.JSON)
@@ -19,7 +19,7 @@ public class RestUtils {
                 .response();
     }
 
-    public Response get(String url, Map<String, String> pathParams) {
+    public static Response get(String url, Map<String, String> pathParams) {
         return given()
                 .pathParams(pathParams)
                 .expect()
@@ -31,7 +31,7 @@ public class RestUtils {
                 .response();
     }
 
-    public Response post(String url, Object payload) {
+    public static Response post(String url, Object payload) {
         return given()
                 .body(payload)
                 .when()
@@ -41,7 +41,7 @@ public class RestUtils {
                 .response();
     }
 
-    public Response put(String url, Object payload, Map<String, String> pathParams) {
+    public static Response put(String url, Object payload, Map<String, String> pathParams) {
         return given()
                 .pathParams(pathParams)
                 .body(payload)
@@ -52,7 +52,7 @@ public class RestUtils {
                 .response();
     }
 
-    public Response delete(String url, Map<String, String> pathParams) {
+    public static Response delete(String url, Map<String, String> pathParams) {
         return given()
                 .pathParams(pathParams)
                 .when()
